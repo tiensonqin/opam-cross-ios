@@ -15,6 +15,10 @@ build: [
   ["dune" "runtest" "-p" name "-j" jobs] {with-test}
 ]
 
+install: [
+  ["sh" "-c" "mkdir -p \"$1/ios-sysroot/lib\" && cp -RL _build/install/default.ios/lib/integers \"$1/ios-sysroot/lib/\"" "--" prefix]
+]
+
 depends: [
   "ocaml-ios" {>= "4.03"}
   "dune" {>= "1.0"}

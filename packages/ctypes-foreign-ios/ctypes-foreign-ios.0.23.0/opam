@@ -39,6 +39,9 @@ build: [
     "@install"
   ]
 ]
+install: [
+  ["sh" "-c" "mkdir -p \"$1/ios-sysroot/lib\" && cp -RL _build/install/default.ios/lib/ctypes-foreign \"$1/ios-sysroot/lib/\"" "--" prefix]
+]
 dev-repo: "git+https://github.com/yallop/ocaml-ctypes.git"
 url {
   src:

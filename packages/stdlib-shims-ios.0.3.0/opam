@@ -12,6 +12,9 @@ depends: [
   "ocaml-ios" {>= "4.02.3"}
 ]
 build: [ "dune" "build" "-p" "stdlib-shims" "-j" jobs "-x" "ios" ]
+install: [
+  ["sh" "-c" "mkdir -p \"$1/ios-sysroot/lib\" && cp -RL _build/install/default.ios/lib/stdlib-shims \"$1/ios-sysroot/lib/\"" "--" prefix]
+]
 synopsis: "Backport some of the new stdlib features to older compiler"
 description: """
 Backport some of the new stdlib features to older compiler,

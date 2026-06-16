@@ -1,0 +1,21 @@
+--- a/otherlibs/Makefile.otherlibs.common
++++ b/otherlibs/Makefile.otherlibs.common
+@@ -34,6 +34,6 @@ ifeq "$(FLAMBDA)" "true"
+ OPTCOMPFLAGS += -O3
+ endif
+-MKLIB=$(OCAMLRUN) $(ROOTDIR)/tools/ocamlmklib
++MKLIB=$(OCAMLRUN) $(ROOTDIR)/tools/ocamlmklib -failsafe
+ 
+ # Variables that must be defined by individual libraries:
+ # LIBNAME
+--- a/otherlibs/systhreads/Makefile
++++ b/otherlibs/systhreads/Makefile
+@@ -29,6 +29,6 @@
+ 
+ # C parts
+ 
+-MKLIB=$(OCAMLRUN) $(ROOTDIR)/tools/ocamlmklib$(EXE)
++MKLIB=$(OCAMLRUN) $(ROOTDIR)/tools/ocamlmklib$(EXE) -failsafe
+ 
+ BYTECODE_C_OBJS=st_stubs_b.$(O)
+ NATIVECODE_C_OBJS=st_stubs_n.$(O)

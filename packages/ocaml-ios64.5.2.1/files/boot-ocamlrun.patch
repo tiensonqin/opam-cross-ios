@@ -1,0 +1,17 @@
+--- a/Makefile
++++ b/Makefile
+@@ -657,12 +657,10 @@ $(foreach runtime, ocamlrun ocamlrund oc
+ tools/checkstack$(EXE): | $(BYTE_BINDIR)/flexlink$(EXE)
+ else
+-boot/ocamlrun$(EXE): runtime/ocamlrun$(EXE) runtime/primitives
++boot/ocamlrun$(EXE): runtime/primitives
+ endif
+ 
+-# $< refers to runtime/ocamlruns when bootstrapping flexlink and
+-# runtime/ocamlrun otherwise (see above).
+ boot/ocamlrun$(EXE):
+-	cp $< $@
++	cp runtime/ocamlrun$(EXE) $@
+ 
+ # Start up the system from the distribution compiler
+ .PHONY: coldstart

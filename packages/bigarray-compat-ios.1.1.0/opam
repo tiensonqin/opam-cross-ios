@@ -9,6 +9,9 @@ build: [
   ["dune" "subst"] {dev}
   ["dune" "build" "-p" "bigarray-compat" "-j" jobs "-x" "ios"]
 ]
+install: [
+  ["sh" "-c" "mkdir -p \"$1/ios-sysroot/lib\" && cp -RL _build/install/default.ios/lib/bigarray-compat \"$1/ios-sysroot/lib/\"" "--" prefix]
+]
 depends: [
   "ocaml-ios" {>= "4.02.3"}
   "dune" {>= "1.0"}

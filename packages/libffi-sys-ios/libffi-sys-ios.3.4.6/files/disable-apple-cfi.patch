@@ -1,0 +1,11 @@
+--- a/include/ffi_cfi.h
++++ b/include/ffi_cfi.h
+@@ -28,7 +28,7 @@
+ #ifndef FFI_CFI_H
+ #define FFI_CFI_H
+ 
+-#ifdef HAVE_AS_CFI_PSEUDO_OP
++#if defined(HAVE_AS_CFI_PSEUDO_OP) && !defined(__APPLE__)
+ 
+ # define cfi_startproc			.cfi_startproc
+ # define cfi_endproc			.cfi_endproc

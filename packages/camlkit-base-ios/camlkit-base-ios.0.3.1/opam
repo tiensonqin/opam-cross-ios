@@ -28,6 +28,9 @@ build: [
     "ios"
   ]
 ]
+install: [
+  ["sh" "-c" "mkdir -p \"$1/ios-sysroot/lib\" && cp -RL _build/install/default.ios/lib/camlkit-base \"$1/ios-sysroot/lib/\"" "--" prefix]
+]
 dev-repo: "git+https://github.com/dboris/camlkit.git"
 url {
   src: "https://github.com/dboris/camlkit/releases/download/v0.3.1/v0.3.1.tar.gz"
